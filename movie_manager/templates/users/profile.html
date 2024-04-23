@@ -1,0 +1,13 @@
+{% extends 'blank_layout.html' %}
+{% load static %}
+ {% block content %}
+
+<h1>PROFILE</h1><br>
+<div class="nav-item">
+USERNAME :   {{user.username}}<br>
+FIRST NAME : {{user.first_name}}<br>
+LAST NAME :  {{user.last_name}}<br>
+EMAIL :      {{user.email}}
+</div>
+
+{% endblock %}

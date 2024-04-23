@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+</head>
+<body>
+    <h1>Edit Profile</h1>
+    <div class="nav-item">
+    <form method="POST">
+        {% csrf_token %}
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" value="{{ user.first_name }}"><br>
+        
+        <label for="names">Last Name:</label>
+        <input type="text" id="names" name="names" value="{{ user.last_name }}"><br>
+
+        <label for="username">UserName:</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}"><br>
+        
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="{{ user.email }}"><br>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" value="{{ user.password }}"><br>
+        
+        <button type="submit">Save Changes</button>
+    </form>
+        </div>
+</body>
+</html>

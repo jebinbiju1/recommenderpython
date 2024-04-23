@@ -1,0 +1,26 @@
+{% extends 'blank_layout.html' %}
+{% block content %}
+<div>
+    <p class="text-center my_search_text"></p>
+    You have searched for : <b>"{{query}}"</b><br>
+ <div class="my_row_class">
+   {% for movie_obj in movies %}
+ <h4 style="color:violet;">Title:</h4> <h2 class="my_prod_title"> {{movie_obj.title}}</h2>
+{% if movie_obj.poster %}
+    <img class="my_image" src="{{movie_obj.poster.url}}"></img>
+{% endif %}<br>
+ <h4 style="color:violet;">Description:</h4><p class="text-justify my_prod_text">{{movie_obj.description}}</p>
+<h4 style="color:violet;">Release Date:</h4><p class="text-justify my_prod_text">{{movie_obj.release_date }}</p>
+<h4 style="color:violet;">Actors:</h4>   <h6 class="text-justify my_prod_text">{{movie_obj.actors}}</h6>
+<h4 style="color:violet;">Language:</h4><h6 class="text-justify my_prod_text">{{movie_obj.category}}</h6>
+<h4 style="color:violet;">Trailer Link:</h4><h6 class="text-justify my_prod_text">{{movie_obj.trailer_link}}</h6>
+       <a class="btn btn-secondary" href="{% url 'edit' movie_obj.id %}">Edit</a><br>
+      <a class="btn btn-danger" href="{% url 'delete' movie_obj.id %}">Delete</a>
+  </div>
+
+    {% empty %}
+    0 results found
+{% endfor %}
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'blank_layout.html' %}
+ {% block content %}
+<h1>Create User</h1>
+<div class="nav-item">
+<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+  <p><label>UserName : </label> <input type="text" name="username"></p><br>
+    <p><label>First Name : </label> <input type="text" name="name"></p><br>
+    <p><label>Last Name : </label> <input type="text" name="names"></p><br>
+    <p><label>Email : </label> <input type="email" name="email"></p><br>
+   <p><label>Password : </label> <input type="Password" name="password"></p><br>
+
+    <button type="submit">Signup</button>
+</form>
+    </div>
+<p>
+    {% if user %}
+    New USER created with username {{user.username}}
+    {% endif %}
+</p>
+<p style="background-color: red;">
+          {% if error_message %}
+     {{error_message}}
+    {% endif %}
+
+</p>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% load static %}
+{% block content %}
+<div>
+    <center>
+        <img src="{% static 'images/logo.jpeg' %}">
+    </center>
+    <div>
+        <p  class="text-justify my_prod_text">
+            It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+        </p>
+    </div>
+</div>
+
+<h1>LOGIN</h1>
+<div class="nav-item">
+<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+  <p><label>UserName : </label> <input type="text" name="username"></p><br>
+   <p><label>Password : </label> <input type="Password" name="password"></p><br>
+    <button type="submit">LOGIN</button>
+</form>
+</div>
+<p style="background-color: red;">
+      {% if error_message %}
+     {{error_message}}
+    {% endif %}
+</p>
+If you do not have an account?
+<div>
+ <a href="{% url 'signup'%}">Create Account</a><br>
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+
+<h1>LOGIN</h1>
+<div class="nav-item">
+<form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+  <p><label>UserName : </label> <input type="text" name="username"></p><br>
+   <p><label>Password : </label> <input type="Password" name="password"></p><br>
+    <button type="submit">LOGIN</button>
+</form>
+</div>
+<p style="background-color: red;">
+      {% if error_message %}
+     {{error_message}}
+    {% endif %}
+</p>
